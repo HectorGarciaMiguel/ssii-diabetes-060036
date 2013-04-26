@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import android.text.format.Time;
+import android.util.Log;
 
 public class Recomendacion {
 
@@ -55,14 +56,49 @@ public class Recomendacion {
 		String numeroHora = formatoHora.format(hora);
 		String numeroMinuto = formatoMinuto.format(hora);
 		int horaActualMinutos = 
-				(Integer.parseInt(numeroHora.toString()) * 60) + (Integer.parseInt(numeroMinuto.toString()));
+				(Integer.parseInt(numeroHora.toString()) * 100) + (Integer.parseInt(numeroMinuto.toString()));
 		
+		Log.d("hola", Integer.toString(Integer.parseInt(numeroHora.toString()) * 100));
+		Log.d("hola", Integer.toString((Integer.parseInt(numeroMinuto.toString() ) )));
+		Log.d("hola", Integer.toString(horaActualMinutos));
 		
-		if (horaActualMinutos < 360){
-			return "antes de las 6:00";
-
+		if (horaActualMinutos >= 0600 && horaActualMinutos <= 1000){
+			return "En ayunas";
 		}
-		return "despues de las 6:00";
+		else{
+			if (horaActualMinutos > 1000 && horaActualMinutos <= 1330){
+				return "Antes de actividad fisica (matutina)";
+			}
+			else{
+				if (horaActualMinutos > 1330 && horaActualMinutos <= 1500){
+					return "Antes de comer";
+				}
+				else{
+					if (horaActualMinutos > 1500 && horaActualMinutos <= 1630){
+						return "Despues de comer";
+					}
+					else{
+						if (horaActualMinutos > 1630 && horaActualMinutos <= 2030){
+							return "Antes de actividad fisica (verpertina)";
+						}
+						else{
+							if (horaActualMinutos > 2030 && horaActualMinutos <= 2230){
+								return "Antes de cenar";
+							}
+							else{
+								if (horaActualMinutos > 2230 && horaActualMinutos <= 2400){
+									return "En la noche";
+								}
+								else{
+									return "En la noche";
+								}
+							}
+								
+						}
+					}
+				}
+			}
+		}
 
 	}
 		
