@@ -1,0 +1,23 @@
+package logica_negocio;
+
+import java.util.ArrayList;
+
+public class Informacion {
+
+	//private int valorIntervalo;
+	//private String interpretacionIntervalo;
+    //private Triplet[] intervalo = [(new Triplet<"bajo", 0, 79>), (new Triplet<"optimo", 80, 149>)];
+	private static Object[][] intervaloAyunas = {{"Bajo", 0, 79},{"Optimo", 80, 149},{"Alto", 150, 1000}};
+
+	public Informacion(){
+    	
+    }
+    
+    
+    
+    
+    public static Object[][] getIntervaloAyunas(){
+    	return intervaloAyunas;
+    }
+    
+}
