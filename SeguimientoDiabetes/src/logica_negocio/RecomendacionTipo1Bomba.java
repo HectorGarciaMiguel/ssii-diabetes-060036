@@ -1,0 +1,5 @@
+package logica_negocio;
+
+public class RecomendacionTipo1Bomba {
+
+}

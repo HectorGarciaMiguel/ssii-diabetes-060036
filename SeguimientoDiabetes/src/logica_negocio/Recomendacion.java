@@ -34,7 +34,7 @@ public class Recomendacion {
 		
 		//Generar recomendación
 		//estado = toEstado(glucosa); 
-		conclusion = toEstado(glucosa);
+		conclusion = toEstado(glucosa, "tipoMedicion", "intensidad");
 		//dosisInsulina = new DosisInsulina();
 		//alimentacion = new Alimentacion();
 		//ejercicio = new Ejercicio();
@@ -104,23 +104,143 @@ public class Recomendacion {
 		
 
 	
-	public String toEstado(int i){
+	public static String toEstado(int medicion, String tipoMedicion, String intensidad){
 		
-		Object[][] intervaloAyunas = logica_negocio.Informacion.getIntervaloAyunas();
-		int x=0;
-		
-		while (x <= intervaloAyunas.length){
+		if (tipoMedicion=="En ayunas" || tipoMedicion=="Antes de comer" || tipoMedicion=="Antes de cenar"){
 			
-			if( Integer.parseInt( intervaloAyunas[x][1].toString() )>i && 
-					Integer.parseInt( intervaloAyunas[x][2].toString() )<i){
-				
-				return intervaloAyunas[x][0].toString();
+			if(medicion<80){
+				return "Malo";
 			}
-		
+			else{
+				if(80<=medicion && medicion<=109){
+					return "Optimo";
+				}
+				else{
+					if (110<=medicion && medicion<=129){
+						return "Aceptable";
+					}
+					else{
+						if (medicion>=130){
+							return "Malo";
+						}
+						else{
+							return "Error";
+						}
+					}
+				}
+			}
+			
+			
 		}
-		//error: el intervalo no contempla todos los casos
-		return null;
-	}
+		else
+		{
+			if (tipoMedicion=="Despues de comer"){
+				
+				if(medicion<80){
+					return "Malo";
+				}
+				else{
+					if(80<=medicion && medicion<=99){
+						return "Aceptable";
+					}
+					else{
+						if (100<=medicion && medicion<=179){
+							return "Optimo";
+						}
+						else{
+							if (medicion>=180){
+								return "Malo";
+							}
+							else{
+								return "Error";
+							}
+						}
+					}
+				}
+				
+				
+			}
+			else{
+				if(tipoMedicion=="Antes de actividad fisica (matutina)" || tipoMedicion=="Antes de actividad fisica (vespertina)"){
+			
+					if(intensidad=="Baja"){
+						
+						if(medicion<=99){
+							return "Aceptable Baja";
+						}
+						else{
+							if(medicion>=100){
+								return "Aceptable Alta";
+							}
+							else{
+								return "Error";
+							}
+						}
+						
+					}
+					else{
+							
+						if(intensidad=="Moderada" || intensidad=="Intenso"){
+							
+							if(medicion<=99){
+								return "Aceptable Baja";
+							}
+							else{
+								if(medicion>=100 && medicion <=179){
+									return "Optima";
+								}
+								else{
+									if(medicion>=180 && medicion <=299){
+										return "Alta";
+									}
+									else{
+										if (medicion>=300){
+											return "Malo";
+										}
+										else{
+											return "Error";
+										}
+									}
+								}
+							}
+						}
+					
+				
+					else{
+					
+						if(tipoMedicion=="En la noche"){
+							
+							if(medicion<80){
+								return "Malo";
+							}
+							else{
+								if(80<=medicion && medicion<=139){
+									return "Optimo";
+								}
+								else{
+									if (medicion>=140){
+										return "Malo";
+									}
+									else{
+										return "Error";
+									}
+								}
+							}
+						}
+						
+					}
+						return "Error";
+					}
+				}
+				else{
+					return "Error";
+				}
+					
+			}
+				
+			}
+		}
+	
 	
 	public static String getConclusion(){
 		return conclusion;
