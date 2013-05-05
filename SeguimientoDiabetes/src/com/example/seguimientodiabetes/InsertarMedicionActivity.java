@@ -37,8 +37,11 @@ public class InsertarMedicionActivity extends Activity {
 
 		Intent i = new Intent(this, RecomendacionActivity.class);
       	//i.putExtra("conclusion", Recomendacion.getConclusion().toString());
-      	i.putExtra("conclusion", Recomendacion.getTipoMedicionActual().toString());
+      	//i.putExtra("conclusion", Recomendacion.getTipoMedicionActual().toString());
+      	i.putExtra("conclusion", Recomendacion.toEstado( 
+      			Integer.parseInt(campoMedicion.getText().toString()) , "Despues de comer", "nada").toString());
 
+		
         startActivity(i);		
 		
 	}
