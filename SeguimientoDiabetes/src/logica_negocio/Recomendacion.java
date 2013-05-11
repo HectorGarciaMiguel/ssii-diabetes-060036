@@ -35,13 +35,15 @@ public class Recomendacion {
 	
 	
 	//constructor
-	public Recomendacion (int valorMedicion, int i)
+	public Recomendacion (int valorMedicion, Tipo t)
 	{
 
-		glucosa = valorMedicion;
+		this.glucosa = valorMedicion;
+		this.tipo = t;
+		
 		
 		//Generar recomendación
-		tipo = getTipoMedicionActual(i);
+		//tipo = getTipoMedicionActual(t);
 		estado = toEstado(glucosa, tipo, null); ///FALTA PASAR INTENSIDAD
 		
 		//dosisInsulina = new DosisInsulina();
@@ -637,7 +639,7 @@ return estado;
 	}
 	
 	
-	public static String getConclusion(){
+	public String getConclusion(){
 		return conclusion;
 	}
 	

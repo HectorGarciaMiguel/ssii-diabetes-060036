@@ -1,15 +1,15 @@
 package logica_negocio;
 
-enum Tipo{	
+public enum Tipo{	
 	Error, En_ayunas, Antes_actividad_fisica_matutina, Antes_comer, Despues_comer, 
 	Antes_actividad_fisica_vespertina, Antes_cenar, En_noche};
-	
-enum Estado{Error, Muy_bajo, Bajo, Optimo, Aceptable_bajo, Aceptable, Aceptable_alto, Alto, Muy_alto}
 
-enum Intensidad{Error, Baja, Moderada, Intensa}
+	enum Estado{Error, Muy_bajo, Bajo, Optimo, Aceptable_bajo, Aceptable, Aceptable_alto, Alto, Muy_alto}
+
+	enum Intensidad{Error, Baja, Moderada, Intensa}
 
 
-public class Informacion {
+/*public class Informacion {
 
 	//private int valorIntervalo;
 	//private String interpretacionIntervalo;
@@ -47,4 +47,4 @@ public class Informacion {
 	
 	
     
-}
+}*/

@@ -2,13 +2,14 @@ package com.example.seguimientodiabetes;
 
 
 
-import logica_negocio.Informacion;
 import logica_negocio.Recomendacion;
+import logica_negocio.Tipo;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.text.Editable;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,6 +25,7 @@ public class InsertarMedicionActivity extends Activity {
 
 	Button registrar;
 	EditText campoMedicion;
+	Tipo t;
 
 	
 	@Override
@@ -38,14 +40,16 @@ public class InsertarMedicionActivity extends Activity {
 		/////
 		Spinner cmbOpciones;
 		cmbOpciones = (Spinner)findViewById(R.id.CmbOpciones);
-		final String[] datos =
-		        new String[]{"En ayunas","Antes de actividad física matutina","Antes de comer",
-				"Después de comer", "Antes de actividad física vespertina", "Antes de cenar",
-				"En la noche"};
+		
+		final Tipo[] datos=new Tipo[] {Tipo.En_ayunas, Tipo.Antes_actividad_fisica_matutina, Tipo.Antes_comer,
+				Tipo.Despues_comer, Tipo.Antes_actividad_fisica_vespertina, Tipo.Antes_cenar, Tipo.En_noche};
+
 		 
-		ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this,
-		             					android.R.layout.simple_spinner_item, datos);
-		 adaptador.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
+		
+		
+		ArrayAdapter<Tipo> adaptador=new ArrayAdapter<Tipo>(this, android.R.layout.simple_spinner_item, datos);
+
+		adaptador.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
 		 
 		int tipoSegunHora = Recomendacion.getTipoMedicionActualNumero();
 		cmbOpciones.setAdapter(adaptador);
@@ -53,34 +57,32 @@ public class InsertarMedicionActivity extends Activity {
 
 		
 
-		/*cmbOpciones.setOnItemSelectedListener(
+		cmbOpciones.setOnItemSelectedListener(
 		        new AdapterView.OnItemSelectedListener() {
 		       
 		       
-		        public void onItemSelected(AdapterView<?> parent,
-		            android.view.View v, int position, long id) {
-
-		        	pasarRecomendacionActivity(v, position);
-		        }
-		        
+		      public void onItemSelected(AdapterView<?> parent, android.view.View v, int position, long id) {
+			        
+		    	  t = datos[position];
+		      }
+       
 		 
-		        public void onNothingSelected(AdapterView<?> parent) {
-		        }
-		});*/
+		      public void onNothingSelected(AdapterView<?> parent) {
+		      }
+		});
 		
 
 		//////////
     		
 	}
 		
-	public void pasarRecomendacionActivity(View v, int list){
+	public void pasarRecomendacionActivity(View v){
 
 		//Recomendacion recomendacion = new Recomendacion( Integer.parseInt(campoMedicion.getText().toString()) );
 
 		Intent i = new Intent(this, RecomendacionActivity.class);
-		Recomendacion rec = new Recomendacion( Integer.parseInt(campoMedicion.getText().toString()), list );
+    	Recomendacion rec = new Recomendacion( Integer.parseInt(campoMedicion.getText().toString()), t );
       	i.putExtra("conclusion", rec.getConclusion() );
-
 		
         startActivity(i);		
 		
