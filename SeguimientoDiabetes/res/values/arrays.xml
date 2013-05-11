@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="tipoMediciones">
+        <item>En ayunas</item>
+        <item>Antes de actividad física matutina</item>
+		<item>Antes de comer</item>
+		<item>Después de comer</item>
+        <item>Antes de actividad física vespertina</item>
+        <item>Antes de cenar</item>
+        <item>En la noche</item>
+        
+    </string-array>
 
 </resources>
