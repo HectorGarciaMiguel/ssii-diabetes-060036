@@ -22,7 +22,6 @@ public class Recomendacion {
 	
 	
 	private Tipo tipo;
-	
 	private Estado estado;
 	
 	private Intensidad intensidad;
@@ -36,13 +35,13 @@ public class Recomendacion {
 	
 	
 	//constructor
-	public Recomendacion (int valorMedicion)
+	public Recomendacion (int valorMedicion, int i)
 	{
 
 		glucosa = valorMedicion;
 		
 		//Generar recomendación
-		tipo = getTipoMedicionActual();
+		tipo = getTipoMedicionActual(i);
 		estado = toEstado(glucosa, tipo, null); ///FALTA PASAR INTENSIDAD
 		
 		//dosisInsulina = new DosisInsulina();
@@ -60,49 +59,128 @@ public class Recomendacion {
 	
 	
 	
-	
+	/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+public static int getTipoMedicionActualNumero(){
+
+int horaActualMinutos = getActualTimeMinutes();
+
+int tipo;
+
+if (horaActualMinutos >= 600 && horaActualMinutos <= 1000){
+tipo = 0;
+}
+else{
+if (horaActualMinutos > 1000 && horaActualMinutos <= 1330){
+tipo = 1;
+}
+else{
+if (horaActualMinutos > 1330 && horaActualMinutos <= 1500){
+tipo = 2;
+}
+else{
+if (horaActualMinutos > 1500 && horaActualMinutos <= 1630){
+tipo = 3;
+}
+else{
+if (horaActualMinutos > 1630 && horaActualMinutos <= 2030){
+tipo = 4;
+}
+else{
+if (horaActualMinutos > 2030 && horaActualMinutos <= 2230){
+tipo = 5;
+}
+else{
+if (horaActualMinutos > 2230 && horaActualMinutos <= 2400){
+tipo = 6;
+}
+else{
+tipo = 6;
+}
+}
+
+}
+}
+}
+}
+}
+
+return tipo;
+
+}
+/////////////////////////////////////////////////////////
+
+	public static Tipo getTipoMedicionActual(int i){
+		
+		Tipo tipo;
+		
+		switch(i){
+		case 0:
+			tipo = Tipo.En_ayunas;
+			break;
+		case 1:
+			tipo = Tipo.Antes_actividad_fisica_matutina;
+			break;
+		case 2:
+			tipo = Tipo.Antes_comer;
+			break;
+		case 3:
+			tipo = Tipo.Despues_comer;
+			break;
+		case 4:
+			tipo = Tipo.Antes_actividad_fisica_vespertina;
+			break;
+		case 5:
+			tipo = Tipo.Antes_cenar;
+			break;
+		case 6:
+			tipo = Tipo.En_noche;
+			break;
+		default:
+			tipo = Tipo.Error;
+			break;
+		}
+		
+		return tipo;
+	}
+
+//////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////
 	public Tipo getTipoMedicionActual(){
 
-		Date hora = new Date();
-		SimpleDateFormat formatoHora = new SimpleDateFormat("HH");
-		SimpleDateFormat formatoMinuto = new SimpleDateFormat("mm");
-		String numeroHora = formatoHora.format(hora);
-		String numeroMinuto = formatoMinuto.format(hora);
-		int horaActualMinutos = 
-				(Integer.parseInt(numeroHora.toString()) * 100) + (Integer.parseInt(numeroMinuto.toString()));		//int horaActualMinutos = 0;
-		Log.d("hola2", Integer.toString(horaActualMinutos));
-
+		int horaActualMinutos = getActualTimeMinutes();
 		
-		if (horaActualMinutos >= 0600 && horaActualMinutos <= 1000){
-			return Tipo.En_ayunas;
+		Tipo tipo;
+		
+		if (horaActualMinutos >= 600 && horaActualMinutos <= 1000){
+			tipo = Tipo.En_ayunas;
 		}
 		else{
 			if (horaActualMinutos > 1000 && horaActualMinutos <= 1330){
-				return Tipo.Antes_actividad_fisica_matutina;
+				tipo = Tipo.Antes_actividad_fisica_matutina;
 			}
 			else{
 				if (horaActualMinutos > 1330 && horaActualMinutos <= 1500){
-					return Tipo.Antes_comer;
+					tipo = Tipo.Antes_comer;
 				}
 				else{
 					if (horaActualMinutos > 1500 && horaActualMinutos <= 1630){
-						return Tipo.Despues_comer;
+						tipo = Tipo.Despues_comer;
 					}
 					else{
 						if (horaActualMinutos > 1630 && horaActualMinutos <= 2030){
-							return Tipo.Antes_actividad_fisica_vespertina;
+							tipo = Tipo.Antes_actividad_fisica_vespertina;
 						}
 						else{
 							if (horaActualMinutos > 2030 && horaActualMinutos <= 2230){
-								return Tipo.Antes_cenar;
+								tipo = Tipo.Antes_cenar;
 							}
 							else{
 								if (horaActualMinutos > 2230 && horaActualMinutos <= 2400){
-									return Tipo.En_noche;
+									tipo = Tipo.En_noche;
 								}
 								else{
-									return Tipo.En_noche;
+									tipo = Tipo.En_noche;
 									}
 							}
 								
@@ -111,6 +189,8 @@ public class Recomendacion {
 				}
 			}
 		}
+		
+		return tipo;
 
 	}
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -346,151 +426,7 @@ public class Recomendacion {
 return estado;
 
 }
-/*
-		
-		
-		
-		
-		
-		if (tipoMedicion== Tipo.En_ayunas || tipoMedicion==Tipo.Antes_comer || tipoMedicion==Tipo.Antes_cenar){
-			
-			if(medicion<80){
-				return Estado.Muy_bajo;
-			}
-			else{
-				if(80<=medicion && medicion<=109){
-					return Estado.Optimo;
-				}
-				else{
-					if (110<=medicion && medicion<=129){
-						return Estado.Aceptable;
-					}
-					else{
-						if (medicion>=130){
-							return Estado.Muy_alto;
-						}
-						else{
-							return Estado.Error;
-						}
-					}
-				}
-			}
-			
-			
-		}
-		else
-		{
-			if (tipoMedicion==Tipo.Despues_comer){
-				
-				if(medicion<80){
-					return Estado.Muy_bajo;
-				}
-				else{
-					if(80<=medicion && medicion<=99){
-						return Estado.Aceptable;
-					}
-					else{
-						if (100<=medicion && medicion<=179){
-							return Estado.Optimo;
-						}
-						else{
-							if (medicion>=180){
-								return Estado.Muy_alto;
-							}
-							else{
-								return Estado.Error;
-							}
-						}
-					}
-				}
-				
-				
-			}
-			else{
-				if(tipoMedicion==Tipo.Antes_actividad_fisica_matutina || tipoMedicion==Tipo.Antes_actividad_fisica_vespertina){
-			
-					if(intensidad==Intensidad.Baja){
-						
-						if(medicion<=99){
-							return Estado.Aceptable_bajo;
-						}
-						else{
-							if(medicion>=100){
-								return Estado.Aceptable_alto;
-							}
-							else{
-								return Estado.Error;
-							}
-						}
-						
-					}
-					else{
-							
-						if(intensidad==Intensidad.Moderada || intensidad==Intensidad.Intensa){
-							
-							if(medicion<=99){
-								return Estado.Aceptable_bajo;
-							}
-							else{
-								if(medicion>=100 && medicion <=179){
-									return Estado.Optimo;
-								}
-								else{
-									if(medicion>=180 && medicion <=299){
-										return Estado.Alto;
-									}
-									else{
-										if (medicion>=300){
-											return Estado.Muy_alto;
-										}
-										else{
-											return Estado.Error;
-										}
-									}
-								}
-							}
-						}
-					
-				
-					else{
-					
-						if(tipoMedicion==Tipo.En_noche){
-							
-							if(medicion<80){
-								return Estado.Muy_bajo;
-							}
-							else{
-								if(80<=medicion && medicion<=139){
-									return Estado.Optimo;
-								}
-								else{
-									if (medicion>=140){
-										return Estado.Muy_alto;
-									}
-									else{
-										return Estado.Error;
-									}
-								}
-							}
-						}
-						
-					}
 
-						return Estado.Error;
-					}
-				}
-				else{
-					Log.d ("hola3", Integer.toString(medicion));
-
-					return Estado.Error;
-				}
-					
-			}
-				
-			}
-			
-			
-		}*/
 	//////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -684,7 +620,7 @@ return estado;
 	
 	
 	
-	public int getActualTimeMinutes(){
+	public static int getActualTimeMinutes(){
 		Date hora = new Date();
 		SimpleDateFormat formatoHora = new SimpleDateFormat("HH");
 		SimpleDateFormat formatoMinuto = new SimpleDateFormat("mm");

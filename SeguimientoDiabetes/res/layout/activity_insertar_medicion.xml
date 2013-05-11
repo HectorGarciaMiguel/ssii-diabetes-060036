@@ -43,6 +43,16 @@
 
     </TableRow>
 
+    <TableRow android:onClick="pasarRecomendacionActivity(v, position);" >
+
+        <Spinner android:id="@+id/CmbOpciones"
+   	 	android:layout_width="match_parent"
+    	android:layout_height="wrap_content" />
+        
+    
+    </TableRow>
+    
+    
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="150dp" >
@@ -56,5 +66,8 @@
             android:text="registrar" />
   		
     </TableRow>
+    
+    
+
 
 </TableLayout>
