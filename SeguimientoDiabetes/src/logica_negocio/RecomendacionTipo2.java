@@ -1,5 +1,5 @@
 package logica_negocio;
 
-public class RecomendacionTipo2 {
+public class RecomendacionTipo2 extends TipoRecomendacion {
 
 }
