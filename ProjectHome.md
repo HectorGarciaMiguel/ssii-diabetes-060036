@@ -1,0 +1,1 @@
+Aplicación para dispositivos móviles sobre Android para el seguimiento del paciente diabético
