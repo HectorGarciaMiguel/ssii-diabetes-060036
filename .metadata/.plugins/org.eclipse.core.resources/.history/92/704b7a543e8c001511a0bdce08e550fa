@@ -1,0 +1,120 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|center"
+    android:stretchColumns="*"
+    tools:context=".MainActivity" >
+<TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    
+    <Button
+        android:id="@+id/button1"
+        style="@style/BotonBlanco"
+        android:layout_weight="1"
+        android:onClick="pasarInsertarMedicionActivity"
+        android:text="Insertar medición" />
+</TableRow>
+
+<TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+    <Button
+        android:id="@+id/button2"
+         style="@style/BotonBlanco"
+        android:layout_weight="1"
+        android:onClick="pasarHistorialMedicionActivity"
+        android:text="Consultar historial de mediciones" />
+</TableRow>
+
+<TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:onClick="lanzarRegistrarActividad"
+        android:text="Registrar actividad" />
+</TableRow>
+
+<TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+     <Button
+         android:id="@+id/button4"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:layout_weight="1"
+         android:background="?android:selectableItemBackground"
+         android:onClick="pasarOpcionesMostrarActividadesActivity"
+         android:text="Mostrar plan de actividades" />
+</TableRow>
+
+<TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+     <Button
+         android:id="@+id/button6"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:layout_weight="1"
+         android:text="Comenzar seguimiento de ejercicio" />
+</TableRow>
+
+<TableRow
+	android:id="@+id/tableRow6"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+   	<Button
+                 android:id="@+id/button7"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="2"
+                 android:text="Alimentación" />
+
+             <Button
+                 android:id="@+id/button8"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="2"
+                 android:text="Tutorial &amp; consejos" />
+
+</TableRow>
+
+<TableRow
+        android:id="@+id/tableRow7"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+     <Button
+         android:id="@+id/button5"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:onClick="pasarConfiguracion"
+         android:layout_weight="2"
+         android:text="Iniciar asistente configuración" />
+     <Button
+	    android:id="@+id/button9"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:text="Configuración" />
+</TableRow>
+
+
+
+</TableLayout>

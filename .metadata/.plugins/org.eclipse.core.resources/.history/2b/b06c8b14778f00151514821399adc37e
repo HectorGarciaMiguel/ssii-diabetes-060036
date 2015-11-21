@@ -1,0 +1,54 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    
+    <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="5dp" >
+    
+        <LinearLayout
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal" >
+            
+            <Button
+            android:id="@+id/button1"
+			android:background="@drawable/mibotonverde"
+        	style="@style/Boton"
+            android:onClick=""
+            android:layout_height="wrap_content"
+            android:text="Últimos 7 días" />
+                    
+            <Button
+            android:id="@+id/button2"
+			android:background="@drawable/mibotonverde"
+        	style="@style/Boton"
+            android:onClick=""
+            android:layout_height="wrap_content"            
+            android:text="Último mes" />
+                            
+                            
+            <Button
+            android:id="@+id/button3"
+			android:background="@drawable/mibotonverde"
+        	style="@style/Boton"
+            android:onClick=""
+            android:layout_height="wrap_content"            
+            android:text="Todas" />
+            
+            
+        </LinearLayout>
+        
+		<ListView 
+		    android:id="@+id/activity_mostrar_actividades_lista"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent" >
+		</ListView>
+
+	</LinearLayout>
+		
+</ScrollView>

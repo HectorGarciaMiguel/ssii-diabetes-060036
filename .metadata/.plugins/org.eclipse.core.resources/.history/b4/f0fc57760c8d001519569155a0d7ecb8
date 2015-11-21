@@ -1,0 +1,74 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="top|center"
+    android:stretchColumns="*"
+    tools:context=".MainActivity" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="2" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+        	android:gravity="center_vertical"
+        	android:layout_margin="10dp"
+            android:text="Valor de glucosa en sangre" />
+
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="mg/dl"
+        	android:gravity="center_vertical"
+        	android:layout_margin="10dp"
+            android:inputType="number" >
+
+        </EditText>
+
+    </TableRow>
+
+    <TableRow 
+        android:id="@+id/tableRow2"        
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="3" >
+
+        <Spinner android:id="@+id/CmbOpciones"
+   	 	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"/>
+        
+    
+    </TableRow>
+    
+    
+    <TableRow
+         android:id="@+id/tableRow3"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="6" >
+
+        <Button
+            android:id="@+id/button1"
+        	android:background="@drawable/mibotonverde"
+        	style="@style/Boton"
+            android:layout_weight="1"
+            android:onClick="pasarRecomendacionActivity"
+            android:layout_height="wrap_content"
+            android:text="Registrar" />
+  		
+    </TableRow>
+    
+    
+
+
+</TableLayout>

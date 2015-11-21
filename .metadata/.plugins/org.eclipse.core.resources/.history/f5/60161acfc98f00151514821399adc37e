@@ -1,0 +1,117 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.seguimientodiabetes.PrincipalActivity"  >
+    
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:layout_gravity="center">
+
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent">
+		    
+		    <Button
+		        android:id="@+id/button1"
+		        style="@style/Boton"
+		        android:background="@drawable/mibotonverde"
+		        android:onClick="pasarInsertarMedicionActivity"
+		        android:text="Insertar medición" />
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent">
+		
+		    <Button
+		        android:id="@+id/button2"
+		        style="@style/Boton"
+		        android:background="@drawable/mibotonverde"
+		        android:onClick="pasarHistorialMedicionActivity"
+		        android:text="Consultar historial de mediciones" />
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent" >
+		
+		    <Button
+		        android:id="@+id/button3"
+		        style="@style/Boton"
+		        android:background="@drawable/mibotonazul"
+		        android:onClick="lanzarRegistrarActividad"
+		        android:text="Registrar actividad" />
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent">
+		
+		     <Button
+		         android:id="@+id/button4"
+		         style="@style/Boton"
+		         android:background="@drawable/mibotonazul"
+		         android:onClick="pasarOpcionesMostrarActividadesActivity"
+		         android:text="Mostrar plan de actividades" />
+		
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent">
+		
+		     <Button
+		        android:id="@+id/button6"
+		        style="@style/Boton"
+		        android:background="@drawable/mibotonazul"
+		        android:text="Comenzar seguimiento de ejercicio" />
+		     
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent">
+		
+		   	<Button
+		        android:id="@+id/button7"
+		        style="@style/Boton"
+		        android:layout_width="wrap_content"
+		        android:background="@drawable/mibotonnaranja"
+		        android:text="Alimentación" />
+		
+		     <Button
+		        android:id="@+id/button8"
+		        style="@style/Boton"
+		        android:layout_width="wrap_content"
+		        android:background="@drawable/mibotonnaranja"
+		        android:text="Tutorial &amp; consejos" />
+		
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent">
+		             
+		     <Button
+			    android:id="@+id/button9"
+		        style="@style/Boton"
+		        android:layout_width="wrap_content"
+		        android:background="@drawable/mibotonnaranja"
+			    android:text="Configuración" />
+		     
+		     <Button
+		        android:id="@+id/button5"
+		        style="@style/Boton"
+		        android:layout_width="wrap_content"
+		        android:background="@drawable/mibotonnaranja"
+		        android:onClick="pasarConfiguracion"
+		        android:text="Iniciar asistente configuración" />
+		     
+		</LinearLayout>
+
+
+</LinearLayout>
+</ScrollView>

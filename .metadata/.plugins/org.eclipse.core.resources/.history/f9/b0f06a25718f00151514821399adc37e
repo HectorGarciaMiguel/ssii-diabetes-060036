@@ -1,0 +1,94 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".OpcionesMostrarACtividadesActivity">
+
+
+<LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp" >
+    
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plan semanal de actividades físicas"
+           	style="@style/RobotoStyleTextViewNegrita" />
+
+    </LinearLayout>
+    
+          <View
+              android:layout_width="wrap_content"
+              android:layout_height="1dp"
+              android:layout_marginBottom="1dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:layout_marginTop="10dp"
+              android:background="#FFFFFF" />
+
+          <View
+              android:layout_width="wrap_content"
+              android:layout_height="1dp"
+              android:layout_marginBottom="10dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:background="#FFFFFF" />
+
+	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+      <RadioGroup
+          android:id="@+id/rdgGrupo"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:checkedButton="@+id/rdbOne"
+          android:orientation="vertical" >
+
+          <RadioButton
+              android:id="@+id/rdbOne"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Lista de mediciones" />
+
+          <RadioButton
+              android:id="@+id/rdbTwo"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Mediciones en forma de gráfica" />
+      </RadioGroup>
+      
+	</LinearLayout>
+    
+
+  
+  
+ 	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button1"
+			android:background="@drawable/mibotonverde"
+        	style="@style/Boton"
+            android:onClick="pasarMostrarMediciones"
+            android:text="Mostrar" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,67 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="top|center"
+    android:stretchColumns="*"
+    tools:context=".MainActivity" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="1" 
+        >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:text="Valor de glucosa en sangre" />
+
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:hint="mg/dl"
+            android:inputType="number" >
+
+        </EditText>
+
+    </TableRow>
+
+    <TableRow         
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="1" >
+
+        <Spinner android:id="@+id/CmbOpciones"
+   	 	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"/>
+        
+    
+    </TableRow>
+    
+    
+    <TableRow
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="7" 
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/button1"
+        	android:background="@drawable/mibotonverde"
+            android:layout_weight="1"
+            android:onClick="pasarRecomendacionActivity"
+            android:text="Registrar" />
+  		
+    </TableRow>
+    
+    
+
+
+</TableLayout>

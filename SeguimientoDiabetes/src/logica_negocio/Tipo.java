@@ -6,7 +6,7 @@ public enum Tipo{
 
 	enum Estado{Error, Muy_bajo, Bajo, Optimo, Aceptable_bajo, Aceptable, Aceptable_alto, Alto, Muy_alto}
 
-	enum Intensidad{Error, Baja, Moderada, Intensa}
+	//enum Intensidad{Error, Baja, Moderada, Intensa}
 
 
 /*public class Informacion {

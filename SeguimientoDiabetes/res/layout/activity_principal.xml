@@ -1,30 +1,118 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/TableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:fillViewport="true"    
+    tools:context="com.example.seguimientodiabetes.PrincipalActivity"  >
+    
+<LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="top|center"
-    android:stretchColumns="*"
-    tools:context=".MainActivity" >
+	android:orientation="vertical"
+	android:gravity="center_vertical">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="insertarMedicion" />
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content">
+		    
+		    <Button
+		        android:id="@+id/button1"
+		        style="@style/Boton"
+		        android:background="@drawable/mibotonverde"
+		        android:onClick="pasarInsertarMedicionActivity"
+		        android:text="Insertar medición" />
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content">
+		
+		    <Button
+		        android:id="@+id/button2"
+		        style="@style/Boton"
+		        android:background="@drawable/mibotonverde"
+		        android:onClick="pasarHistorialMedicionActivity"
+		        android:text="Consultar historial de mediciones" />
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content" >
+		
+		    <Button
+		        android:id="@+id/button3"
+		        style="@style/Boton"
+		        android:background="@drawable/mibotonazul"
+		        android:onClick="lanzarRegistrarActividad"
+		        android:text="Registrar actividad" />
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content">
+		
+		     <Button
+		         android:id="@+id/button4"
+		         style="@style/Boton"
+		         android:background="@drawable/mibotonazul"
+		         android:onClick="pasarOpcionesMostrarActividadesActivity"
+		         android:text="Mostrar plan de actividades" />
+		
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content">
+		
+		     <Button
+		        android:id="@+id/button6"
+		        style="@style/Boton"
+		        android:background="@drawable/mibotonazul"
+		        android:text="Comenzar seguimiento de ejercicio" />
+		     
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content">
+		
+		     <Button
+		        android:id="@+id/button8"
+		        style="@style/Boton"
+		        android:layout_weight="4"
+		        android:background="@drawable/mibotonnaranja"
+		        android:text="Tutorial &amp; consejos" />
+		     
+		     <Button
+		        android:id="@+id/button7"
+		        style="@style/Boton"
+		        android:layout_weight="6"
+		        android:background="@drawable/mibotonnaranja"
+		        android:text="Alimentación" />
+		
+		</LinearLayout>
+		
+		<LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content">
+		             
+		     <Button
+			    android:id="@+id/button9"
+		        style="@style/Boton"
+		        android:layout_weight="6"
+		        android:background="@drawable/mibotonnaranja"
+			    android:text="Configuración" />
+		     
+		     <Button
+		        android:id="@+id/button5"
+		        style="@style/Boton"
+		        android:layout_weight="4"
+		        android:background="@drawable/mibotonnaranja"
+		        android:onClick="pasarConfiguracion"
+		        android:text="Iniciar asistente configuración" />
+		     
+		</LinearLayout>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="mostrarMediciones" />
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="registrarActividad" />
 
-</TableLayout>
+</LinearLayout>
+</ScrollView>

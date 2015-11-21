@@ -1,0 +1,684 @@
+package com.example.seguimientodiabetes;
+
+import java.util.Calendar;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+public class Configuracion3Activity extends Activity {
+
+	EditText tiempoL, tiempoM, tiempoX, tiempoJ, tiempoV, tiempoS, tiempoD;
+	EditText horaL, horaM, horaX, horaJ, horaV, horaS, horaD;
+	Spinner planes;
+	Spinner actividadL, actividadM, actividadX, actividadJ, actividadV, actividadS, actividadD;
+	int edad;
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_configuracion3);
+		
+		planes = (Spinner) findViewById(R.id.spinner1);
+		
+		tiempoL = (EditText)findViewById(R.id.editText1);
+		tiempoM = (EditText)findViewById(R.id.editText2);
+		tiempoX = (EditText)findViewById(R.id.editText3);
+		tiempoJ = (EditText)findViewById(R.id.editText4);
+		tiempoV = (EditText)findViewById(R.id.editText5);
+		tiempoS = (EditText)findViewById(R.id.editText6);
+		tiempoD = (EditText)findViewById(R.id.editText7);
+		
+		horaL = (EditText)findViewById(R.id.editText8);
+		horaM = (EditText)findViewById(R.id.editText9);
+		horaX = (EditText)findViewById(R.id.editText10);
+		horaJ = (EditText)findViewById(R.id.editText11);
+		horaV = (EditText)findViewById(R.id.editText12);
+		horaS = (EditText)findViewById(R.id.editText13);
+		horaD = (EditText)findViewById(R.id.editText14);
+		
+		actividadL = (Spinner) findViewById(R.id.spinner2);
+		actividadM = (Spinner) findViewById(R.id.spinner3);
+		actividadX = (Spinner) findViewById(R.id.spinner4);
+		actividadJ = (Spinner) findViewById(R.id.spinner5);
+		actividadV = (Spinner) findViewById(R.id.spinner6);
+		actividadS = (Spinner) findViewById(R.id.spinner7);
+		actividadD = (Spinner) findViewById(R.id.spinner8);
+
+		
+		
+		
+		SharedPreferences prefs =
+ 			     getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+		
+		String nacimiento = prefs.getString("nacimiento", null);
+		String estiloGuardada = prefs.getString("estiloVida", null);
+		
+		
+		Calendar hoy = Calendar.getInstance();
+		int anoNacimiento = Integer.parseInt((String) nacimiento.subSequence(nacimiento.length() - 4 , nacimiento.length()));
+		final int edad = hoy.get(Calendar.YEAR) - anoNacimiento;
+		
+		final String[] arrayActividades = new String[] { " ", "Correr", "Andar", "Bicicleta", "Patinar", 
+				"Tenis", "Padel", "Musculación",  "Nadar", "Patinar", "Baloncesto"};
+
+		ArrayAdapter<String> adaptadorActividades = new ArrayAdapter<String>(
+				this, android.R.layout.simple_spinner_item, arrayActividades);
+
+		adaptadorActividades
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+		actividadL.setAdapter(adaptadorActividades);
+		actividadM.setAdapter(adaptadorActividades);
+		actividadX.setAdapter(adaptadorActividades);
+		actividadJ.setAdapter(adaptadorActividades);
+		actividadV.setAdapter(adaptadorActividades);
+		actividadS.setAdapter(adaptadorActividades);
+		actividadD.setAdapter(adaptadorActividades);
+
+		final String[] arrayPlanes = new String[] { "Ninguna actividad", "Actividad ligera", "Actividad media", "Actividad intensa", "Actividad excepcionalmente intensa"};
+
+		ArrayAdapter<String> adaptadorPlanes = new ArrayAdapter<String>(
+				this, android.R.layout.simple_spinner_item, arrayPlanes);
+
+		adaptadorPlanes
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+		planes.setAdapter(adaptadorPlanes);
+		
+		switch (estiloGuardada){
+			case "Actividad ligera":		planes.setSelection(1);
+				break;
+			case "Actividad media":			planes.setSelection(2);
+				break;
+			case "Actividad intensa":		planes.setSelection(3);
+				break;
+			case "Actividad excepcionalmente intensa":		planes.setSelection(4);
+				break;
+			default:
+				Log.d("debug", "Error seleccion auto");
+		}
+		
+		planes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+			public void onItemSelected(AdapterView<?> parent,
+					android.view.View v, int position, long id) {
+				
+				switch (position) {
+				
+				case 0:
+					actividadL.setSelection(0);
+					actividadM.setSelection(0);
+					actividadX.setSelection(0);
+					actividadJ.setSelection(0);
+					actividadV.setSelection(0);
+					actividadS.setSelection(0);
+					actividadD.setSelection(0);
+					
+					tiempoL.setText(" ");
+					tiempoM.setText(" ");
+					tiempoX.setText(" ");
+					tiempoJ.setText(" ");
+					tiempoV.setText(" ");
+					tiempoS.setText(" ");
+					tiempoD.setText(" ");
+					
+					horaL.setText(" ");
+					horaM.setText(" ");
+					horaX.setText(" ");
+					horaJ.setText(" ");
+					horaV.setText(" ");
+					horaS.setText(" ");
+					horaD.setText(" ");
+				
+				break;
+				
+				case 1:
+					
+					if(edad<19){
+					
+					actividadL.setSelection(2);
+					actividadM.setSelection(0);
+					actividadX.setSelection(5);
+					actividadJ.setSelection(0);
+					actividadV.setSelection(9);
+					actividadS.setSelection(0);
+					actividadD.setSelection(0);
+					
+					tiempoL.setText("45");
+					tiempoM.setText(" ");
+					tiempoX.setText("60");
+					tiempoJ.setText(" ");
+					tiempoV.setText("45");
+					tiempoS.setText(" ");
+					tiempoD.setText(" ");
+					
+					horaL.setText("18:00");
+					horaM.setText(" ");
+					horaX.setText("18:00");
+					horaJ.setText(" ");
+					horaV.setText("18:00");
+					horaS.setText(" ");
+					horaD.setText(" ");
+					}
+					else if(edad>=19 && edad<44){
+						
+						actividadL.setSelection(2);
+						actividadM.setSelection(0);
+						actividadX.setSelection(5);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(9);
+						actividadS.setSelection(0);
+						actividadD.setSelection(0);
+						
+						tiempoL.setText("60");
+						tiempoM.setText(" ");
+						tiempoX.setText("90");
+						tiempoJ.setText(" ");
+						tiempoV.setText("45");
+						tiempoS.setText(" ");
+						tiempoD.setText(" ");
+						
+						horaL.setText("18:00");
+						horaM.setText(" ");
+						horaX.setText("18:00");
+						horaJ.setText(" ");
+						horaV.setText("18:00");
+						horaS.setText(" ");
+						horaD.setText(" ");
+						
+					}else if (edad>=45 && edad<69){
+						
+						actividadL.setSelection(2);
+						actividadM.setSelection(0);
+						actividadX.setSelection(2);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(2);
+						actividadS.setSelection(0);
+						actividadD.setSelection(0);
+						
+						tiempoL.setText("45");
+						tiempoM.setText(" ");
+						tiempoX.setText("45");
+						tiempoJ.setText(" ");
+						tiempoV.setText("45");
+						tiempoS.setText(" ");
+						tiempoD.setText(" ");
+						
+						horaL.setText("12:00");
+						horaM.setText(" ");
+						horaX.setText("12:00");
+						horaJ.setText(" ");
+						horaV.setText("12:00");
+						horaS.setText(" ");
+						horaD.setText(" ");
+						
+						
+						
+					}else if (edad>=70){
+						
+						actividadL.setSelection(2);
+						actividadM.setSelection(0);
+						actividadX.setSelection(2);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(2);
+						actividadS.setSelection(0);
+						actividadD.setSelection(0);
+						
+						tiempoL.setText("30");
+						tiempoM.setText(" ");
+						tiempoX.setText("30");
+						tiempoJ.setText(" ");
+						tiempoV.setText("30");
+						tiempoS.setText(" ");
+						tiempoD.setText(" ");
+						
+						horaL.setText("12:00");
+						horaM.setText(" ");
+						horaX.setText("12:00");
+						horaJ.setText(" ");
+						horaV.setText("12:00");
+						horaS.setText(" ");
+						horaD.setText(" ");
+						
+						
+					}else {
+						
+				//Error					
+					}
+					
+					
+					
+					
+					
+					break;
+					
+				case 2:
+					if(edad<19){
+						
+						actividadL.setSelection(1);
+						actividadM.setSelection(0);
+						actividadX.setSelection(5);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(1);
+						actividadS.setSelection(0);
+						actividadD.setSelection(3);
+						
+						tiempoL.setText("20");
+						tiempoM.setText(" ");
+						tiempoX.setText("60");
+						tiempoJ.setText(" ");
+						tiempoV.setText("20");
+						tiempoS.setText(" ");
+						tiempoD.setText("60");
+						
+						horaL.setText("18:00");
+						horaM.setText(" ");
+						horaX.setText("18:00");
+						horaJ.setText(" ");
+						horaV.setText("18:00");
+						horaS.setText(" ");
+						horaD.setText("12:00");		
+					}
+					else if(edad>=19 && edad<44){
+						
+						actividadL.setSelection(1);
+						actividadM.setSelection(0);
+						actividadX.setSelection(5);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(1);
+						actividadS.setSelection(0);
+						actividadD.setSelection(3);
+						
+						tiempoL.setText("25");
+						tiempoM.setText(" ");
+						tiempoX.setText("90");
+						tiempoJ.setText(" ");
+						tiempoV.setText("25");
+						tiempoS.setText(" ");
+						tiempoD.setText("90");
+						
+						horaL.setText("18:00");
+						horaM.setText(" ");
+						horaX.setText("18:00");
+						horaJ.setText(" ");
+						horaV.setText("18:00");
+						horaS.setText(" ");
+						horaD.setText("12:00");	
+						
+					}else if (edad>=45 && edad<69){
+						
+						actividadL.setSelection(1);
+						actividadM.setSelection(0);
+						actividadX.setSelection(5);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(1);
+						actividadS.setSelection(0);
+						actividadD.setSelection(8);
+						
+						tiempoL.setText("60");
+						tiempoM.setText(" ");
+						tiempoX.setText("60");
+						tiempoJ.setText(" ");
+						tiempoV.setText("60");
+						tiempoS.setText(" ");
+						tiempoD.setText("45");
+						
+						horaL.setText("12:00");
+						horaM.setText(" ");
+						horaX.setText("12:00");
+						horaJ.setText(" ");
+						horaV.setText("12:00");
+						horaS.setText(" ");
+						horaD.setText("18:00");
+						
+						
+					}else if (edad>=70){
+						
+						actividadL.setSelection(1);
+						actividadM.setSelection(0);
+						actividadX.setSelection(5);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(1);
+						actividadS.setSelection(0);
+						actividadD.setSelection(8);
+						
+						tiempoL.setText("45");
+						tiempoM.setText(" ");
+						tiempoX.setText("60");
+						tiempoJ.setText(" ");
+						tiempoV.setText("60");
+						tiempoS.setText(" ");
+						tiempoD.setText("30");
+						
+						horaL.setText("12:00");
+						horaM.setText(" ");
+						horaX.setText("12:00");
+						horaJ.setText(" ");
+						horaV.setText("12:00");
+						horaS.setText(" ");
+						horaD.setText("18:00");
+						
+						
+					}else {
+						
+				//Error					
+					}
+					
+					break;
+				case 3:
+					if(edad<19){
+						
+					actividadL.setSelection(8);
+					actividadM.setSelection(0);
+					actividadX.setSelection(2);
+					actividadJ.setSelection(0);
+					actividadV.setSelection(8);
+					actividadS.setSelection(0);
+					actividadD.setSelection(0);
+					
+					tiempoL.setText("45");
+					tiempoM.setText(" ");
+					tiempoX.setText("30");
+					tiempoJ.setText(" ");
+					tiempoV.setText("45");
+					tiempoS.setText(" ");
+					tiempoD.setText("120");
+					
+					horaL.setText("18:00");
+					horaM.setText(" ");
+					horaX.setText("18:00");
+					horaJ.setText(" ");
+					horaV.setText("18:00");
+					horaS.setText(" ");
+					horaD.setText("12:00");
+					}
+					else if(edad>=19 && edad<44){
+							
+						actividadL.setSelection(8);
+						actividadM.setSelection(0);
+						actividadX.setSelection(1);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(8);
+						actividadS.setSelection(0);
+						actividadD.setSelection(3);
+						
+						tiempoL.setText("60");
+						tiempoM.setText(" ");
+						tiempoX.setText("30");
+						tiempoJ.setText(" ");
+						tiempoV.setText("60");
+						tiempoS.setText(" ");
+						tiempoD.setText("150");
+						
+						horaL.setText("18:00");
+						horaM.setText(" ");
+						horaX.setText("18:00");
+						horaJ.setText(" ");
+						horaV.setText("18:00");
+						horaS.setText(" ");
+						horaD.setText("12:00");
+						
+					}else if (edad>=45 && edad<69){
+						
+						actividadL.setSelection(2);
+						actividadM.setSelection(0);
+						actividadX.setSelection(8);
+						actividadJ.setSelection(2);
+						actividadV.setSelection(0);
+						actividadS.setSelection(5);
+						actividadD.setSelection(1);
+						
+						tiempoL.setText("120");
+						tiempoM.setText(" ");
+						tiempoX.setText("45");
+						tiempoJ.setText("120");
+						tiempoV.setText(" ");
+						tiempoS.setText("120");
+						tiempoD.setText("20");
+						
+						horaL.setText("18:00");
+						horaM.setText(" ");
+						horaX.setText("18:00");
+						horaJ.setText(" ");
+						horaV.setText("18:00");
+						horaS.setText(" ");
+						horaD.setText("12:00");
+						
+						
+					}else if (edad>=70){
+						
+						actividadL.setSelection(0);
+						actividadM.setSelection(0);
+						actividadX.setSelection(0);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(0);
+						actividadS.setSelection(0);
+						actividadD.setSelection(0);
+						
+						tiempoL.setText(" ");
+						tiempoM.setText(" ");
+						tiempoX.setText(" ");
+						tiempoJ.setText(" ");
+						tiempoV.setText(" ");
+						tiempoS.setText(" ");
+						tiempoD.setText(" ");
+						
+						horaL.setText(" ");
+						horaM.setText(" ");
+						horaX.setText(" ");
+						horaJ.setText(" ");
+						horaV.setText(" ");
+						horaS.setText(" ");
+						horaD.setText(" ");
+						
+						
+					}else {
+						
+				//Error					
+					}
+					
+					break;
+					
+					
+				case 4: 
+					if(edad<19){
+
+					actividadL.setSelection(8);
+					actividadM.setSelection(2);
+					actividadX.setSelection(7);
+					actividadJ.setSelection(2);
+					actividadV.setSelection(8);
+					actividadS.setSelection(3);
+					actividadD.setSelection(5);
+					
+					tiempoL.setText("60");
+					tiempoM.setText("45");
+					tiempoX.setText("60");
+					tiempoJ.setText("45");
+					tiempoV.setText("60");
+					tiempoS.setText("180");
+					tiempoD.setText("90");
+					
+					horaL.setText("18:00");
+					horaM.setText("18:00");
+					horaX.setText("18:00");
+					horaJ.setText("18:00");
+					horaV.setText("18:00");
+					horaS.setText("12:00");
+					horaD.setText("12:00");
+					}
+					else if(edad>=19 && edad<44){
+								
+						actividadL.setSelection(0);
+						actividadM.setSelection(0);
+						actividadX.setSelection(0);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(0);
+						actividadS.setSelection(0);
+						actividadD.setSelection(0);
+						
+						tiempoL.setText(" ");
+						tiempoM.setText(" ");
+						tiempoX.setText(" ");
+						tiempoJ.setText(" ");
+						tiempoV.setText(" ");
+						tiempoS.setText(" ");
+						tiempoD.setText(" ");
+						
+						horaL.setText(" ");
+						horaM.setText(" ");
+						horaX.setText(" ");
+						horaJ.setText(" ");
+						horaV.setText(" ");
+						horaS.setText(" ");
+						horaD.setText(" ");
+					}else if (edad>=45 && edad<69){
+						
+						
+						actividadL.setSelection(0);
+						actividadM.setSelection(0);
+						actividadX.setSelection(0);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(0);
+						actividadS.setSelection(0);
+						actividadD.setSelection(0);
+						
+						tiempoL.setText(" ");
+						tiempoM.setText(" ");
+						tiempoX.setText(" ");
+						tiempoJ.setText(" ");
+						tiempoV.setText(" ");
+						tiempoS.setText(" ");
+						tiempoD.setText(" ");
+						
+						horaL.setText(" ");
+						horaM.setText(" ");
+						horaX.setText(" ");
+						horaJ.setText(" ");
+						horaV.setText(" ");
+						horaS.setText(" ");
+						horaD.setText(" ");
+						
+					}else if (edad>=70){
+						
+						
+						actividadL.setSelection(0);
+						actividadM.setSelection(0);
+						actividadX.setSelection(0);
+						actividadJ.setSelection(0);
+						actividadV.setSelection(0);
+						actividadS.setSelection(0);
+						actividadD.setSelection(0);
+						
+						tiempoL.setText(" ");
+						tiempoM.setText(" ");
+						tiempoX.setText(" ");
+						tiempoJ.setText(" ");
+						tiempoV.setText(" ");
+						tiempoS.setText(" ");
+						tiempoD.setText(" ");
+						
+						horaL.setText(" ");
+						horaM.setText(" ");
+						horaX.setText(" ");
+						horaJ.setText(" ");
+						horaV.setText(" ");
+						horaS.setText(" ");
+						horaD.setText(" ");
+						
+					}else {
+						
+				//Error					
+					}
+					
+					break;
+					
+					
+					default:break;
+					
+				
+				}
+				
+
+			}
+			
+			public void onNothingSelected(AdapterView<?> parent) {
+			}
+		});	
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_configuracion3, menu);
+		return true;
+	}
+	
+	
+	
+	
+	
+	
+	
+	public void lanzarConfiguracion4(View v){
+				
+		
+		
+		if (	(actividadL.getSelectedItem().toString().length()==0 && (tiempoL.getText().length()==0 || horaL.getText().length()==0 ) ) || 
+				(actividadM.getSelectedItem().toString().length()==0 && (tiempoM.getText().length()==0 || horaM.getText().length()==0 ) ) ||
+				(actividadX.getSelectedItem().toString().length()==0 && (tiempoX.getText().length()==0 || horaX.getText().length()==0 ) ) || 
+				(actividadJ.getSelectedItem().toString().length()==0 && (tiempoJ.getText().length()==0 || horaJ.getText().length()==0 ) ) || 
+				(actividadV.getSelectedItem().toString().length()==0 && (tiempoV.getText().length()==0 || horaV.getText().length()==0 ) ) || 
+				(actividadS.getSelectedItem().toString().length()==0 && (tiempoS.getText().length()==0 || horaS.getText().length()==0 ) ) || 
+				(actividadD.getSelectedItem().toString().length()==0 && (tiempoD.getText().length()==0 || horaD.getText().length()==0 ) )){
+			
+				Toast mensaje =Toast.makeText(getApplicationContext(),
+	                    "No ha completado tiempo u hora del ejercicio.", Toast.LENGTH_LONG);
+				mensaje.show();
+			}else{
+				
+			
+		
+		
+			SharedPreferences prefs =
+	 			     getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+	 		
+			SharedPreferences.Editor editor = prefs.edit();
+			
+			editor.putString("lunes", (actividadL.getSelectedItem().toString() + " " + tiempoL.getText() + " "+ horaL.getText()));
+			editor.putString("martes", (actividadM.getSelectedItem().toString() + " " + tiempoM.getText() + " "+ horaM.getText()));
+			editor.putString("miercoles", (actividadX.getSelectedItem().toString() + " " + tiempoX.getText() + " "+ horaX.getText()));
+			editor.putString("jueves", (actividadJ.getSelectedItem().toString() + " " + tiempoJ.getText() + " "+ horaJ.getText()));
+			editor.putString("viernes", (actividadV.getSelectedItem().toString() + " " + tiempoV.getText() + " "+ horaV.getText()));
+			editor.putString("sabado", (actividadS.getSelectedItem().toString() + " " + tiempoS.getText() + " "+ horaS.getText()));
+			editor.putString("domingo", (actividadD.getSelectedItem().toString() + " " + tiempoD.getText() + " "+ horaD.getText()));
+			editor.commit();
+			
+			Intent intent = new Intent(Configuracion3Activity.this, Configuracion4Activity.class);
+			startActivity(intent);
+			}
+		
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

@@ -2,4 +2,38 @@ package logica_negocio;
 
 public class RecomendacionTipo1Bomba extends TipoRecomendacion {
 
+	private Integer glucosa;
+	private TipoMedicion tipo;
+	private EstadoMedicion estado;
+	private Intensidad intensidad;
+	
+	
+	private static String conclusion;
+	
+	
+	//constructor
+	public RecomendacionTipo1Bomba (int valorMedicion, TipoMedicion t)
+	{
+
+		
+	}
+
+
+
+	@Override
+	public EstadoMedicion toEstado() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public String getDosisInsulina() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	
 }

@@ -1,0 +1,25 @@
+package logica_negocio;
+
+public class Ejercicio {
+
+	private String ejercicio;
+	private String intensidad;
+	private String dia;
+	private String hora;
+	private int tiempoProgramado;
+	
+	private int distanciaRecorrida;
+	private int tiempoRealizado;
+	private int caloriasGastadas;
+	
+	private String conclusion;
+
+	
+	public Ejercicio(){
+		
+	}
+	
+	public String getConclusion(){
+		return conclusion;
+	}
+}

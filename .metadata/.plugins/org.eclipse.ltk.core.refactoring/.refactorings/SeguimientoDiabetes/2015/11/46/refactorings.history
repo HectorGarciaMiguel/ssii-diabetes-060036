@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SeguimientoDiabetes/res/drawable/fondo-con-gotas-de-lluvia.jpg&apos; to &apos;fondo.jpg&apos;" description="Rename resource &apos;fondo-con-gotas-de-lluvia.jpg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable/fondo-con-gotas-de-lluvia.jpg" name="fondo.jpg" stamp="1447436676775" updateReferences="true"/>
+</session>

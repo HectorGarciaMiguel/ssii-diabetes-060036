@@ -1,0 +1,57 @@
+
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="5dp" >
+    
+        <LinearLayout
+    		android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		android:orientation="horizontal" >
+            
+            <Button
+            android:id="@+id/button1"
+			android:background="@drawable/mibotonverde"
+        	style="@style/Boton"
+            android:onClick=""
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" 
+            android:layout_margin="5dp"           
+            android:text="Últimos 7 días" />
+                    
+            <Button
+            android:id="@+id/button2"
+			android:background="@drawable/mibotonverde"
+        	style="@style/Boton"
+            android:onClick=""
+            android:layout_height="wrap_content"  
+            android:layout_width="wrap_content"  
+            android:layout_margin="5dp" 
+            android:text="Último mes" />
+                            
+                            
+            <Button
+            android:id="@+id/button3"
+			android:background="@drawable/mibotonverde"
+        	style="@style/Boton"
+            android:onClick=""
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="5dp"                                     
+            android:text="Todas" />
+            
+            
+        </LinearLayout>
+        
+		<ListView
+		    android:id="@+id/activity_mostrar_actividades_lista"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+
+		</ListView>
+
+	</LinearLayout>
+		

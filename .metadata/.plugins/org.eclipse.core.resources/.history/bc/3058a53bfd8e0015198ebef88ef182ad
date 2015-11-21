@@ -1,0 +1,295 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp"       
+    tools:context=".Configuracion3Activity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plan semanal de actividades físicas"
+           	style="@style/RobotoStyleTextViewNegrita" />
+
+    </LinearLayout>
+    
+          <View
+              android:layout_width="wrap_content"
+              android:layout_height="1dp"
+              android:layout_marginBottom="1dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:layout_marginTop="10dp"
+              android:background="#FFFFFF" />
+
+          <View
+              android:layout_width="wrap_content"
+              android:layout_height="1dp"
+              android:layout_marginBottom="10dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:background="#FFFFFF" />
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            style="@style/RobotoStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activar planes semanales" />
+            
+    	<Spinner
+    	    android:id="@+id/spinner1"
+    	    android:layout_width="100dp"
+    	    android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TableLayout 
+        android:shrinkColumns="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:dividerPadding="7dp"
+        >
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lunes" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="minutos"
+            android:inputType="number" >
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulse aqui"
+            android:inputType="time"
+            android:onClick="showDialog(TIME_DIALOG_ID)" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Martes" />
+
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="minutos"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulse aqui"
+            android:inputType="time"
+            android:onClick="showDialog(TIME_DIALOG_ID)" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Miércoles" />
+
+        <Spinner
+            android:id="@+id/spinner4"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="minutos"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulse aqui"
+            android:inputType="time"
+            android:onClick="showDialog(TIME_DIALOG_ID)" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jueves" />
+
+        <Spinner
+            android:id="@+id/spinner5"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="minutos"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulse aqui"
+            android:inputType="time"
+            android:onClick="showDialog(TIME_DIALOG_ID)" />
+
+    </TableRow>
+
+    <TableRow >
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Viernes" />
+
+        <Spinner
+            android:id="@+id/spinner6"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="minutos"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulse aqui"
+            android:inputType="time"
+            android:onClick="showDialog(TIME_DIALOG_ID)" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sábado" />
+
+        <Spinner
+            android:id="@+id/spinner7"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="minutos"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulse aqui"
+            android:inputType="time"
+            android:onClick="showDialog(TIME_DIALOG_ID)" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Domingo" />
+
+        <Spinner
+            android:id="@+id/spinner8"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editText7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="minutos"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulse aqui"
+            android:inputType="time"
+            android:onClick="showDialog(TIME_DIALOG_ID)" />
+
+    </TableRow>
+    
+    </TableLayout>
+    
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button1"
+            android:background="@drawable/mibotonverde"
+        	style="@style/Boton"
+            android:onClick="lanzarConfiguracion4"
+            android:text="Siguiente" />
+
+    </LinearLayout>
+</LinearLayout>

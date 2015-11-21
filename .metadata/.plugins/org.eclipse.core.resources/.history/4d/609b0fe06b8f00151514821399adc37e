@@ -1,0 +1,240 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    
+    <LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="vertical"
+    	android:layout_margin="5dp"       
+    	tools:context=".Configuracion4Activity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Configuración de avisos"
+            style="@style/RobotoStyleTextViewNegrita" />
+
+    </LinearLayout>
+
+          <View
+              android:layout_width="wrap_content"
+              android:layout_height="1dp"
+              android:layout_marginBottom="1dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:layout_marginTop="10dp"
+              android:background="#FFFFFF" />
+
+          <View
+              android:layout_width="wrap_content"
+              android:layout_height="1dp"
+              android:layout_marginBottom="10dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:background="#FFFFFF" />
+          
+ <TableLayout 
+        android:stretchColumns="1,2,3"
+        android:shrinkColumns="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:dividerPadding="7dp" >
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/TextView06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medición en ayunas" />
+
+        <TextView
+            android:id="@+id/TextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulsar aqui"
+            android:inputType="time" />
+
+        <CheckBox
+            android:id="@+id/CheckBox06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/TextView05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medición antes \nactividad matutina" />
+
+        <TextView
+            android:id="@+id/TextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulsar aqui"
+            android:inputType="time" />
+        
+        <CheckBox
+            android:id="@+id/CheckBox05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medición antes de comer" />
+
+       <TextView
+           android:id="@+id/TextView3"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:hint="Pulsar aqui"
+           android:inputType="time" />
+        
+        <CheckBox
+            android:id="@+id/CheckBox03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="Medición después de comer" />
+
+        <TextView
+            android:id="@+id/TextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulsar aqui"
+            android:inputType="time" />
+        
+        <CheckBox
+            android:id="@+id/CheckBox02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"  
+            android:text="Medición antes actividad vespertina" />
+
+        <TextView
+            android:id="@+id/TextView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulsar aqui"
+            android:inputType="time" />
+        
+        <CheckBox
+            android:id="@+id/CheckBox01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/TextView07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medición antes de cenar" />
+
+        <TextView
+            android:id="@+id/TextView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulsar aqui"
+            android:inputType="time" />
+        
+        <CheckBox
+            android:id="@+id/CheckBox07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <TextView
+            android:id="@+id/TextView04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medición en la noche" />
+      
+        <TextView
+            android:id="@+id/TextView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Pulsar aqui"
+            android:inputType="time" />
+        
+        <CheckBox
+            android:id="@+id/CheckBox04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </TableRow>
+</TableLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp" 
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/button1"
+            style="@style/Boton"
+            android:background="@drawable/mibotonverde"
+			android:layout_height="wrap_content"
+            android:onClick="lanzarTerminar"
+            android:text="Terminar" />
+
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

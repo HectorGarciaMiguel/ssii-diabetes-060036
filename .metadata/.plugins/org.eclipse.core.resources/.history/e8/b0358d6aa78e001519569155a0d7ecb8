@@ -1,0 +1,147 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Configuracion2Tipo1Activity" >
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Tratamiento para mediciones de glucosa normales"
+            style="@style/RobotoStyleTextViewNegrita" 
+            android:layout_span="3"/>
+
+    </TableRow>
+
+          <View
+    		android:layout_height="1dp"
+    		android:layout_marginTop="10dp"
+    		android:layout_marginRight="10dp"
+    		android:layout_marginLeft="10dp"
+    		android:layout_marginBottom="1dp"
+    		android:background="#FFFFFF"/>
+          <View
+    		android:layout_height="1dp"
+    		android:layout_marginRight="10dp"
+    		android:layout_marginLeft="10dp"
+    		android:layout_marginBottom="10dp"
+    		android:background="#FFFFFF"/> 
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:text="Prepandial"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+        <EditText
+            android:id="@+id/editText1"
+            android:hint="u/h"
+            android:inputType="number"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:text="unidades"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </TableRow>
+
+    <TableRow >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:text="Nocturna" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:hint="u/h"
+            android:inputType="number"  />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:text="unidades"  />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="1"  >
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text=" * 3 pinchazos diarios en condiciones normales" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow6"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="1"  >
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Habilitar compartir historial de mediciones" />
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="1"  >
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="email" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow10"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_weight="1"  >
+
+        <Button
+            android:id="@+id/button1"
+        	style="@style/Boton"
+        	android:background="@drawable/mibotonverde"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:onClick="lanzarConfiguracion3"
+            android:text="Siguiente" />
+
+    </TableRow>
+   
+</TableLayout>
